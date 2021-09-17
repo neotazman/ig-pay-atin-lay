@@ -4,7 +4,6 @@
 const convertToPigLatin = (str) => { //the function to convert pig latin (works for words starting with vowels, words starting with consonants, and sentences)
     const vowelChecker = (letter) => { //check if a letter is a vowel, returns a boolean
         if(letter.toLowerCase() === 'a' || letter.toLowerCase() === 'e' || letter.toLowerCase() === 'i' || letter.toLowerCase() === 'o' || letter.toLowerCase() === 'u') { //the logic for "y" is more complicated so i haven't implemented it yet
-            console.log(letter)
             return true
         } else {
             return false
@@ -41,3 +40,15 @@ const convertToPigLatin = (str) => { //the function to convert pig latin (works 
 // export default convertToPigLatin
 
 //unit tests
+//1.
+console.log(convertToPigLatin('almost'))
+console.log(convertToPigLatin('enough'))
+//2.
+console.log(convertToPigLatin('consonant'))
+console.log(convertToPigLatin('vowel'))
+//3.
+console.log(convertToPigLatin('blatent'))
+console.log(convertToPigLatin('animal'))
+//4.
+console.log(convertToPigLatin('once there was a rabbit'))
+console.log(convertToPigLatin('this is a sentence with words'))
