@@ -1,14 +1,15 @@
 // Your code here
-const vowelChecker = (letter) => { //check if a letter is a vowel, returns a boolean
-    if(letter.toLowerCase() === 'a' || letter.toLowerCase() === 'e' || letter.toLowerCase() === 'i' || letter.toLowerCase() === 'o' || letter.toLowerCase() === 'u') { //the logic for "y" is more complicated so i haven't implemented it yet
-        console.log(letter)
-        return true
-    } else {
-        return false
-    }
-}
 
-const convertToPigLatin = (str) => { //the function to convert pig latin
+
+const convertToPigLatin = (str) => { //the function to convert pig latin (works for words starting with vowels, words starting with consonants, and sentences)
+    const vowelChecker = (letter) => { //check if a letter is a vowel, returns a boolean
+        if(letter.toLowerCase() === 'a' || letter.toLowerCase() === 'e' || letter.toLowerCase() === 'i' || letter.toLowerCase() === 'o' || letter.toLowerCase() === 'u') { //the logic for "y" is more complicated so i haven't implemented it yet
+            console.log(letter)
+            return true
+        } else {
+            return false
+        }
+    }
     if(typeof str !== 'string') { //checks if it's a string
         return false
     } else {
@@ -26,9 +27,17 @@ const convertToPigLatin = (str) => { //the function to convert pig latin
             for(let i = 0; i < firstVowelIndex; i++) { //puts the consonants after the dash
                 pigLatinArr.push(letters[i])
             }
-            pigLatinArr.push('ay') // adds the ay to the end
+            if(letters[0] === pigLatinArr[0]) { //if the word starts with a vowel, adds yay instead of ay
+                pigLatinArr.push('yay')
+            } else {
+                pigLatinArr.push('ay') // adds the ay to the end
+            }
             successArr.push(pigLatinArr.join('')) //turns the converted word back into a word and adds it to the converted words array
         }
         return successArr.join(' ') //turns the array into a string and returns the converted string
     }
 }
+
+// export default convertToPigLatin
+
+//unit tests
