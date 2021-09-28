@@ -2,12 +2,9 @@
 //const mainContainer = document.getElementById("mainContainer");
 const inputBox = document.getElementById("inputBox");
 const resultDisplay = document.getElementById("resultDisplay");
-console.log(inputBox);
 
 const convertToPigLatin = (str) => { //the function to convert pig latin (works for words starting with vowels, words starting with consonants, and sentences)
-    if(!str) { //so if the input is an empty string, it will return an empty string
-        return '';
-    }
+
     const vowelChecker = (letter) => { //check if a letter is a vowel, returns a boolean
         if(letter.toLowerCase() === 'a' || letter.toLowerCase() === 'e' || letter.toLowerCase() === 'i' || letter.toLowerCase() === 'o' || letter.toLowerCase() === 'u') { //the logic for "y" is more complicated so i haven't implemented it yet
             return true
@@ -22,6 +19,9 @@ const convertToPigLatin = (str) => { //the function to convert pig latin (works 
 
         successArr = [] //a place to store the converted words
         for(let word of wordArr) { //runs for each word individually
+            if(!word) { //if the word is an empty string, it will convert it to an empty string
+                continue
+            }
             let letters = word.split('') //converts the word into letters
             let pigLatinArr = [] //a place to store the converted word
             let firstVowelIndex = letters.findIndex(letter => vowelChecker(letter)) //finds the first vowel and saves the index
@@ -44,7 +44,6 @@ const convertToPigLatin = (str) => { //the function to convert pig latin (works 
 }
 
 const convert = (e) => {
-    console.log(e)
     let convertedOutput = convertToPigLatin(e.target.value)
 
     resultDisplay.innerText = convertedOutput
