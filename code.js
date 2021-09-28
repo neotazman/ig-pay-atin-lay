@@ -1,7 +1,13 @@
 // Your code here
-
+//const mainContainer = document.getElementById("mainContainer");
+const inputBox = document.getElementById("inputBox");
+const resultDisplay = document.getElementById("resultDisplay");
+console.log(inputBox);
 
 const convertToPigLatin = (str) => { //the function to convert pig latin (works for words starting with vowels, words starting with consonants, and sentences)
+    if(!str) { //so if the input is an empty string, it will return an empty string
+        return '';
+    }
     const vowelChecker = (letter) => { //check if a letter is a vowel, returns a boolean
         if(letter.toLowerCase() === 'a' || letter.toLowerCase() === 'e' || letter.toLowerCase() === 'i' || letter.toLowerCase() === 'o' || letter.toLowerCase() === 'u') { //the logic for "y" is more complicated so i haven't implemented it yet
             return true
@@ -37,7 +43,14 @@ const convertToPigLatin = (str) => { //the function to convert pig latin (works 
     }
 }
 
-// export default convertToPigLatin
+const convert = (e) => {
+    console.log(e)
+    let convertedOutput = convertToPigLatin(e.target.value)
+
+    resultDisplay.innerText = convertedOutput
+}
+
+inputBox.addEventListener('input', convert)
 
 //unit tests
 //1.

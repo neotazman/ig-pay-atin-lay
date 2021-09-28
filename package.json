@@ -2,6 +2,16 @@
   "dependencies": {
     "nodemon": "^2.0.12",
     "react": "^17.0.2",
+    "react-scripts" : "4.0.1",
     "yarn": "^1.22.11"
-  }
+  },
+  "scripts": {
+    "start" : "react-scripts start"
+  },
+  "name": "challenge-pig-latin-neotazman",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/KenzieAcademy-Students/challenge-pig-latin-neotazman.git",
+  "author": "Tristan Alie <TristanAlie@yahoo.com>",
+  "license": "MIT"
 }

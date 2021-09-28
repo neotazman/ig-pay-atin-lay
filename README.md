@@ -12,4 +12,4 @@ _(Instructions for how to install the unit testing framework and run the unit te
 
 For a software developer, what are the benefits of good unit tests? Are there any drawbacks to writing unit tests?
 
-good unit tests are important to check if the code is running as it should be. the drawback to writing unit tests is that you might not account for edge cases
+good unit tests are important to check if the code is running as it should be. the drawback to writing unit tests is that you might not account for edge cases. i didn't implement y as a vowel because it would be super complicated and the computer would have to know what words y is used as a vowel.
