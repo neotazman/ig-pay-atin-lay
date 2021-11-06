@@ -1,1 +1,14 @@
 /* Write your CSS here */
+body {
+    background-color: rgb(255, 157, 0);
+    color: rgb(13, 0, 255)
+}
+
+* {
+    font-size: 125%;
+}
+
+input, textarea {
+    background-color: rgb(160, 251, 86);
+    color: rgb(121, 0, 0)
+}
