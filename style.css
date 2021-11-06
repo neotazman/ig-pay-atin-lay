@@ -1,7 +1,8 @@
 /* Write your CSS here */
 body {
     background-color: rgb(255, 157, 0);
-    color: rgb(13, 0, 255)
+    color: rgb(13, 0, 255);
+    align-items: center;
 }
 
 * {
@@ -9,6 +10,7 @@ body {
 }
 
 input, textarea {
+    width: 80%;
     background-color: rgb(160, 251, 86);
     color: rgb(121, 0, 0)
 }

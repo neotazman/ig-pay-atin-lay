@@ -12,6 +12,13 @@ const convertToPigLatin = (str) => { //the function to convert pig latin (works 
             return false
         }
     }
+    const punctuationChecker = (character) => { //checks if a character is a punctuation mark
+        if(character === ',' || character === '.' || character === '?' || character === '!' || character === ';' || character === ':') {
+            return true
+        } else {
+            return false
+        }
+    }
     if(typeof str !== 'string') { //checks if it's a string
         return false
     } else {
@@ -23,10 +30,19 @@ const convertToPigLatin = (str) => { //the function to convert pig latin (works 
                 continue
             }
             let letters = word.split('') //converts the word into letters
+            let punctuationMark = '' //saves the punctuation mark if there is one
+            if( punctuationChecker(letters[letters.length - 1]) ) { //the punctuationMark is only valid at the end of a word
+                punctuationMark = letters[letters.length - 1]
+            }
             let pigLatinArr = [] //a place to store the converted word
             let firstVowelIndex = letters.findIndex(letter => vowelChecker(letter)) //finds the first vowel and saves the index
             for(let i = firstVowelIndex; i < letters.length; i++) { //a loop that starts at the first vowel
-                pigLatinArr.push(letters[i])
+                if(i === letters.length - 1 && punctuationMark) { //when it hits a punctuation mark it skips it
+                    continue
+                } else {
+                    pigLatinArr.push(letters[i])
+                }
+                
             }
             pigLatinArr.push('-') //puts a dash between the word and the ay
             for(let i = 0; i < firstVowelIndex; i++) { //puts the consonants after the dash
@@ -34,8 +50,14 @@ const convertToPigLatin = (str) => { //the function to convert pig latin (works 
             }
             if(letters[0] === pigLatinArr[0]) { //if the word starts with a vowel, adds yay instead of ay
                 pigLatinArr.push('yay')
+                if(punctuationMark) { //puts the punctuationMark at the end of the word
+                    pigLatinArr.push(punctuationMark)
+                }
             } else {
                 pigLatinArr.push('ay') // adds the ay to the end
+                if(punctuationMark) {
+                    pigLatinArr.push(punctuationMark)
+                }
             }
             successArr.push(pigLatinArr.join('')) //turns the converted word back into a word and adds it to the converted words array
         }
